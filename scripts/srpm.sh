@@ -22,16 +22,16 @@ check_variable() {
 
 check_variable NAME
 SOURCE_NAME=${SOURCE_NAME:-"$NAME"}
-VERSION=${VERSION:-"1.0.0~alpha.5.1"}
+VERSION=${VERSION:-"14"}
 VERSION_NO_TILDE=$(echo "$VERSION" | sed 's/~/-/g')
 COMMIT=${COMMIT:-"latest"}
-REPO=${REPO:-"https://github.com/pop-os/$SOURCE_NAME"}
+REPO=${REPO:-"https://github.com/project-gauntlet/$SOURCE_NAME"}
 VENDOR=${VENDOR:-1}
 VENDORSELF=${VENDORSELF:-0}
 NIGHTLY=${NIGHTLY:-1}
 
 if [ "$NIGHTLY" -eq 0 ]; then
-    COMMIT="epoch-1.0.0-alpha.5.1"
+    COMMIT="v14"
 fi
 
 if [ ! -e "$NAME" ]; then
@@ -107,19 +107,4 @@ if [ "$NIGHTLY" -eq 1 ]; then
     sed -i "/^Version: / s/.*/Version:        $VERSION^git%{commitdate}.%{shortcommit}/" $NAME.spec
     sed -i "/^%global commitdate / s/.*/%global commitdate $COMMITDATE/" $NAME.spec
     sed -i "/^%global commit / s/.*/%global commit $COMMIT/" $NAME.spec
-else
-    sed -i "/^Version: / s/.*/Version:        $VERSION/" $NAME.spec
-    # Replace shortcommit with version_no_tilde and delete shortcommit def. version_no_tilde is predefined by rpm macros
-    sed -i "/^%global shortcommit /d" $NAME.spec
-    # Replace commit in Source0 with epoch-%version_no_tilde
-    sed -i "/^Source0/ s/%{commit}/epoch-%{version_no_tilde}/g" $NAME.spec
-    sed -i "/^%autosetup/ s/%{commit}/epoch-%{version_no_tilde}/g" $NAME.spec
-    sed -i "s/%{shortcommit}/%{version_no_tilde}/g" $NAME.spec
-    # Delete commitdate, we don't need it here
-    sed -i "/^%global commitdate /d" $NAME.spec
-    # We still need commit, add comments explaining why
-    sed -i "/^%global commit / s/.*/\# While our version corresponds to an upstream tag, we still need to define\n\# these macros in order to set the VERGEN_GIT_SHA and VERGEN_GIT_COMMIT_DATE\n\# environment variables in multiple sections of the spec file.\n%global commit $COMMIT/" $NAME.spec
 fi
-# Universal replacements - Define cosmic_minver and commitdatestring
-sed -i "/^%global cosmic_minver / s/.*/%global cosmic_minver $VERSION/" $NAME.spec
-sed -i "/^%global commitdatestring / s/.*/%global commitdatestring $COMMITDATESTRING/" $NAME.spec
