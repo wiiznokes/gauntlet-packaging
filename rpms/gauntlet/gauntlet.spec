@@ -22,6 +22,7 @@ BuildRequires:  lld
 BuildRequires:  cargo
 BuildRequires:  libxkbcommon-devel
 BuildRequires:  nodejs
+BuildRequires:  npm
 
 
 %global _description %{expand:
