@@ -16,6 +16,9 @@ Source0:        https://github.com/project-gauntlet/gauntlet/archive/%{commit}/c
 Source1:        vendor-%{shortcommit}.tar.gz
 Source2:        vendor-config-%{shortcommit}.toml
 
+	
+Patch: gcc15_libffi.patch
+
 BuildRequires:  cargo-rpm-macros >= 25
 BuildRequires:  rustc
 BuildRequires:  lld

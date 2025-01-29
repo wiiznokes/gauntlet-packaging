@@ -1,0 +1,23 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index d017c76..012042e 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -6111,7 +6111,7 @@ dependencies = [
+ [[package]]
+ name = "libffi-sys"
+ version = "2.3.0"
+-source = "git+https://github.com/tov/libffi-rs?rev=d0704d634b6f3ffef5b6fc7e07fe965a1cff5c7b#d0704d634b6f3ffef5b6fc7e07fe965a1cff5c7b"
++source = "git+https://github.com/wiiznokes/libffi-rs?rev=35ffbe2cd587c1c76b97a1fe90b530a0ee565fec#35ffbe2cd587c1c76b97a1fe90b530a0ee565fec"
+ dependencies = [
+  "cc",
+ ]
+diff --git a/Cargo.toml b/Cargo.toml
+index a467fec..1752f83 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -83,4 +83,4 @@ strip = true
+
+ [patch.crates-io]
+ # NOTE https://github.com/ipetkov/crane/issues/336
+-libffi-sys = { git = "https://github.com/tov/libffi-rs", rev = "d0704d634b6f3ffef5b6fc7e07fe965a1cff5c7b" }
++libffi-sys = { git = "https://github.com/wiiznokes/libffi-rs", rev = "35ffbe2cd587c1c76b97a1fe90b530a0ee565fec" }
