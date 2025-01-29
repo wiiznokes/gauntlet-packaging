@@ -82,6 +82,9 @@ if [ "$VENDOR" -eq 1 ]; then
 
     # XXX: cause issue on cosmic-store. I haven't submitted a pull request or anything
     chmod -x ./vendor/ipnet/src/lib.rs || true
+
+    git apply --directory=./vendor/libffi-rs/libffi-sys-rs/libffi gcc15_libffi.patch
+
     if [ "$NIGHTLY" -eq 1 ]; then
         tar -pczf ../vendor-$SHORTCOMMIT.tar.gz vendor
     else
