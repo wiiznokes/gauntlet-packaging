@@ -21,6 +21,7 @@ BuildRequires:  rustc
 BuildRequires:  lld
 BuildRequires:  cargo
 BuildRequires:  libxkbcommon-devel
+BuildRequires:  nodejs
 
 
 %global _description %{expand:
