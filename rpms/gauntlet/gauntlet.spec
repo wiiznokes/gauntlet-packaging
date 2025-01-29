@@ -23,6 +23,9 @@ BuildRequires:  cargo
 BuildRequires:  libxkbcommon-devel
 BuildRequires:  nodejs
 BuildRequires:  npm
+BuildRequires:  openssl-devel
+BuildRequires:  pkg-config
+BuildRequires:  perl
 
 
 %global _description %{expand:
