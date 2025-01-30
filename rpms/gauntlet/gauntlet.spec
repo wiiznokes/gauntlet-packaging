@@ -54,9 +54,9 @@ sed 's/\(.*\) (.*#\(.*\))/\1+git\2/' -i cargo-vendor.txt
 
 %install
 install -Dm0755 target/release/gauntlet %{buildroot}/%{_bindir}/gauntlet
-install -Dm0644 assets/gauntlet.desktop %{buildroot}/%{_datadir}/applications/gauntlet.desktop
-install -Dm0644 assets/gauntlet.png %{buildroot}/%{_datadir}/icons/hicolor/256x256/apps/gauntlet.png
-install -Dm0644 assets/gauntlet.service %{buildroot}/%{_userunitdir}/gauntlet.service
+install -Dm0644 assets/linux/gauntlet.desktop %{buildroot}/%{_datadir}/applications/gauntlet.desktop
+install -Dm0644 assets/linux/gauntlet.png %{buildroot}/%{_datadir}/icons/hicolor/256x256/apps/gauntlet.png
+install -Dm0644 assets/linux/gauntlet.service %{buildroot}/%{_userunitdir}/gauntlet.service
 
 %if %{with check}
 %check
