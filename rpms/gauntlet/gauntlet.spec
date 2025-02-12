@@ -30,7 +30,8 @@ BuildRequires:  openssl-devel
 BuildRequires:  pkg-config
 BuildRequires:  perl
 BuildRequires:  protobuf-compiler
-BuildRequires:  git
+BuildRequires:  git	
+BuildRequires:  desktop-file-utils
 
 
 %global _description %{expand:
@@ -61,6 +62,7 @@ install -Dm0644 assets/linux/gauntlet.service %{buildroot}/%{_userunitdir}/gaunt
 
 %if %{with check}
 %check
+desktop-file-validate %{buildroot}%{_datadir}/applications/gauntlet.desktop
 %cargo_test
 %endif
 
