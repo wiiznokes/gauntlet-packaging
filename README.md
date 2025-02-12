@@ -1,0 +1,3 @@
+- https://copr.fedorainfracloud.org/coprs/wiiznokes/gauntlet/
+- https://github.com/project-gauntlet/gauntlet
+- https://github.com/wiiznokes/gauntlet-packaging
