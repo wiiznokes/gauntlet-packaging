@@ -83,6 +83,34 @@ if [ "$VENDOR" -eq 1 ]; then
     # XXX: cause issue on cosmic-store. I haven't submitted a pull request or anything
     chmod -x ./vendor/ipnet/src/lib.rs || true
 
+    chmod -x ./vendor/alloc-no-stdlib/src/lib.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/backward_references/hash_to_binary_tree.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/backward_references/hq.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/backward_references/mod.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/bit_cost.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/block_split.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/block_splitter.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/brotli_bit_stream.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/cluster.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/compat.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/compress_fragment.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/compress_fragment_two_pass.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/constants.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/dictionary_hash.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/encode.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/histogram.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/literal_cost.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/metablock.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/static_dict_lut.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/utf8_util.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/util.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/vectorization.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/enc/writer.rs || true
+    chmod -x ./vendor/brotli-6.0.0/src/lib.rs || true
+    chmod -x ./vendor/brotli-decompressor/src/decode.rs || true
+    chmod -x ./vendor/brotli-decompressor/src/lib.rs || true
+    chmod -x ./vendor/brotli-decompressor/src/memory.rs || true
+
     if [ "$NIGHTLY" -eq 1 ]; then
         tar -pczf ../vendor-$SHORTCOMMIT.tar.gz vendor
     else
@@ -107,3 +135,6 @@ if [ "$NIGHTLY" -eq 1 ]; then
     sed -i "/^%global commitdate / s/.*/%global commitdate $COMMITDATE/" $NAME.spec
     sed -i "/^%global commit / s/.*/%global commit $COMMIT/" $NAME.spec
 fi
+
+
+

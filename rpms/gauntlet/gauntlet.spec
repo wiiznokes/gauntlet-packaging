@@ -30,6 +30,7 @@ BuildRequires:  openssl-devel
 BuildRequires:  pkg-config
 BuildRequires:  perl
 BuildRequires:  protobuf-compiler
+BuildRequires:  git
 
 
 %global _description %{expand:
