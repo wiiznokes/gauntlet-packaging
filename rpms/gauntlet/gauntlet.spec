@@ -32,6 +32,7 @@ BuildRequires:  perl
 BuildRequires:  protobuf-compiler
 BuildRequires:  git	
 BuildRequires:  desktop-file-utils
+BuildRequires:  systemd-rpm-macros
 
 
 %global _description %{expand:
