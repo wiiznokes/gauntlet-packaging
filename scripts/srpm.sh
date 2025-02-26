@@ -22,7 +22,7 @@ check_variable() {
 
 check_variable NAME
 SOURCE_NAME=${SOURCE_NAME:-"$NAME"}
-VERSION=${VERSION:-"14"}
+VERSION=${VERSION:-"16"}
 VERSION_NO_TILDE=$(echo "$VERSION" | sed 's/~/-/g')
 COMMIT=${COMMIT:-"latest"}
 REPO=${REPO:-"https://github.com/project-gauntlet/$SOURCE_NAME"}
@@ -31,7 +31,7 @@ VENDORSELF=${VENDORSELF:-0}
 NIGHTLY=${NIGHTLY:-1}
 
 if [ "$NIGHTLY" -eq 0 ]; then
-    COMMIT="v14"
+    COMMIT="v${VERSION}"
 fi
 
 if [ ! -e "$NAME" ]; then
